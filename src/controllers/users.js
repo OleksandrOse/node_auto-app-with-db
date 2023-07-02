@@ -1,6 +1,7 @@
 'use strict';
 
 const userServices = require('../services/users');
+const path = require('path');
 
 const getAll = async(req, res) => {
   const users = await userServices.getAll();
@@ -29,13 +30,24 @@ const getOne = async(req, res) => {
 const add = async(req, res) => {
   const { name } = req.body;
 
-  if (!name) {
+  const files = req.files;
+  const photoUrls = [];
+
+  files.forEach((file, index) => {
+    const baseUrl = req.protocol + '://' + req.get('host');
+    const photoName = file.originalname;
+    const photoUrl = `${baseUrl}/uploads/${photoName}`;
+
+    photoUrls.push(photoUrl);
+  });
+
+  if (!name || !photoUrls.length) {
     res.sendStatus(400);
 
     return;
   }
 
-  const newUser = await userServices.create(name);
+  const newUser = await userServices.create(name, photoUrls);
 
   res.status(201);
 

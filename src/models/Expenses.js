@@ -3,7 +3,7 @@
 const { sequelize } = require('../database/db');
 const { DataTypes } = require('sequelize');
 
-const Expenses = sequelize.define('User', {
+const Expenses = sequelize.define('Expanses', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -33,7 +33,7 @@ const Expenses = sequelize.define('User', {
     allowNull: false,
   },
 }, {
-  tableName: 'expenses',
+  tableName: 'expanses',
 });
 
 module.exports = { Expenses };
