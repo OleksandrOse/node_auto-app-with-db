@@ -7,6 +7,7 @@ const path = require('path');
 const multer = require('multer');
 const usersRouter = require('./routes/users');
 const expensesRouter = require('./routes/expenses');
+const helloRouter = require('./routes/hello');
 
 function createServer() {
   const app = express();
@@ -30,6 +31,7 @@ function createServer() {
 
   app.use(upload.any());
 
+  app.use('/', helloRouter);
   app.use('/users', usersRouter);
   app.use('/expenses', expensesRouter);
 
