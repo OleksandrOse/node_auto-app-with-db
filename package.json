@@ -8,7 +8,7 @@
   },
   "scripts": {
     "init": "mate-scripts init",
-    "start": "node src/createServer.js",
+    "start": "node src/index.js",
     "lint": "mate-scripts lint",
     "test:only": "mate-scripts test",
     "update": "mate-scripts update",
