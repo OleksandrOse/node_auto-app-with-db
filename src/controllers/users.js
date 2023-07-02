@@ -1,7 +1,6 @@
 'use strict';
 
 const userServices = require('../services/users');
-const path = require('path');
 
 const getAll = async(req, res) => {
   const users = await userServices.getAll();
