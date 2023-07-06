@@ -10,7 +10,7 @@
     "init": "mate-scripts init",
     "start": "node src/index.js",
     "server": "nodemon src/index.js",
-    "build": "run build",
+    "build": "npm run build",
     "lint": "mate-scripts lint",
     "test:only": "mate-scripts test",
     "update": "mate-scripts update",
