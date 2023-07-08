@@ -35,7 +35,8 @@ const add = async(req, res) => {
   files.forEach((file, index) => {
     const baseUrl = req.protocol + '://' + req.get('host');
     const photoName = file.originalname;
-    const photoUrl = `${baseUrl}/uploads/${photoName}`;
+    const photoJpg = photoName.split('.').slice(0, 1)
+    const photoUrl = `${baseUrl}/uploads/${photoJpg}.jpg`;
 
     photoUrls.push(photoUrl);
   });
