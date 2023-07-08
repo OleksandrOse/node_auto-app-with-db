@@ -12,6 +12,14 @@ const User = sequelize.define('User', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  price: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  year: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   foto: {
     type: DataTypes.ARRAY(DataTypes.STRING),
     allowNull: true,

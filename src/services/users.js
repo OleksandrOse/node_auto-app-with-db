@@ -2,10 +2,12 @@
 
 const { User } = require('../models/User');
 
-function normalize({ id, name, foto }) {
+function normalize({ id, name, price, year, foto }) {
   return {
     id,
     name,
+    price,
+    year,
     foto,
   };
 }
@@ -32,13 +34,15 @@ function getById(userId) {
   return User.findByPk(userId);
 }
 
-async function create(name, photoUrls) {
+async function create(name, price, year, photoUrls) {
   const data = await getAll();
   const id = getMax(data);
 
   return User.create({
     id,
     name,
+    price,
+    year,
     foto: photoUrls,
   });
 }

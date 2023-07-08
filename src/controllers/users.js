@@ -27,7 +27,7 @@ const getOne = async(req, res) => {
 };
 
 const add = async(req, res) => {
-  const { name } = req.body;
+  const { name, price, year } = req.body;
 
   const files = req.files;
   const photoUrls = [];
@@ -40,13 +40,13 @@ const add = async(req, res) => {
     photoUrls.push(photoUrl);
   });
 
-  if (!name || !photoUrls.length) {
+  if (!name || !price || !year || !photoUrls.length) {
     res.sendStatus(400);
 
     return;
   }
 
-  const newUser = await userServices.create(name, photoUrls);
+  const newUser = await userServices.create(name, price, year, photoUrls);
 
   res.status(201);
 
